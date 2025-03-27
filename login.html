@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CV Maker </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <!-- <link rel="script" href="script.js"> -->
+
+    <style>
+       .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            
+            margin: auto;
+            margin-top: 70px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .form-container {
+            flex: 1;
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        .form-container h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-container p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .form-container a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .form-container a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #sendOtpBtn {
+            background: #007BFF;
+            color: white;
+        }
+
+        #sendOtpBtn:hover {
+            background: #0056b3;
+        }
+
+        .login-in-btn {
+            background: #28a745;
+            color: white;
+            font-weight: bold;
+        }
+
+        .login-in-btn:hover {
+            background: #218838;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+    </style>
+  <nav class="navbar">
+    <!-- Logo -->
+    <div class="navbar-logo">
+        <img src="./Media_Content/Logo/image-removebg-preview[1].png" alt="Instant CV Logo">
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./Templates.html">Templates</a></li>
+        <li><a href="./About1.html">About</a></li>
+        <li><a href="./Review.html">Review</a></li>
+    </ul>
+</nav>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <p>Welcome! Don't have account? Create one  <a href="signup.html">Signup</a></p>
+            <form action="/login" method="POST" id="loginForm">
+                <!-- <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+                <p class="error-message" id="usernameError"></p> -->
+        
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+                <p class="error-message" id="emailError"></p>
+        
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+                <p class="error-message" id="passwordError"></p>
+<!--         
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                <p class="error-message" id="confirmPasswordError"></p> -->
+<!--         
+                <button type="button" id="sendOtpBtn">Send OTP</button>
+        
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" placeholder="Enter OTP" required>
+                <p class="error-message" id="otpError"></p> -->
+        
+                <button type="submit" class="login-in-btn">Login</button>
+            </form>
+        </div>
+
+        <div class="image-container">
+            <img src="./Media_Content/Logo/image-removebg-preview.png" alt="Signup Illustration">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script_login.js"></script>
+</body>
+
+
+<footer class="footer">
+
+
+    <div class="divider"></div>
+    
+    <div class="footer-container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="./Media_Content/Logo/image-removebg-preview[1].png" alt="Instant CV Logo">
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <strong>Quick Links</strong><br>
+            <a href="./index.html">Home</a>
+            <a href="./About1.html">About Us</a>
+            <a href="./Review.html">Review</a>
+            <a href="./Templates.html">Templates</a>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-contact">
+            <strong>Contact Us</strong>
+            <p>Email: <a href="mailto:vikash.ningwal04052004@gmail.com">vikash.ningwal04052004@gmail.com</a></p>
+            <p>Phone: <a href="tel:+918085660391">+91 8085660391</a></p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="footer-social">
+            <strong>Follow Us</strong>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/yagyesh-sahu-173232256"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:vikash.ningwal04052004@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        Instant CV Maker. All rights reserved. &copy; <span id="year"></span>
+    </div>
+</footer>
+
+<!-- JavaScript for Dynamic Year -->
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+</script>
+
+</html>

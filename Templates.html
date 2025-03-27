@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates Section</title>
+    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Background Video Styling */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Places video behind content */
+        }
+
+        /* Ensures content is above the video */
+        body {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5); /* Slight overlay for readability */
+            color: white;
+        }
+
+        /* Template Section Styling */
+        .template-section {
+            max-width:900px;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 40px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1); /* Glassmorphism Effect */
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            color: black;
+            text-align: center;
+        }
+
+        /* Template Slider */
+        .swiper {
+            margin-top: 20px;
+            border-radius: 15px;
+            width: 100%;
+            height: 400px;
+        }
+
+        /* Template Cards */
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+        }
+
+        /* Template Images */
+        .swiper-slide img {
+            margin-top: 20px;
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Template Selection Button */
+        .select-btn {
+            margin-bottom: 30px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .select-btn:hover {
+           
+            background: #e64a19;
+        }
+
+        /* Template Description Box */
+        .template-description {
+            margin-top: 200px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            color: black;
+            font-size: 18px;
+        }
+    </style>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <img src="./Media_Content/Logo/image-removebg-preview[1].png" alt="Instant CV Logo">
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./Templates.html">Templates</a></li>
+                <li><a href="./About1.html">About</a></li>
+                <li><a href="./Review.html">Review</a></li>
+            </ul>
+        </nav>
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video class="background-video" autoplay loop muted playsinline>
+        <source src="/Media_Content/VIdeo/4884239-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="template-section">
+        <h2>Choose Your Resume Template</h2>
+
+        <!-- Swiper Container -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-template="Modern Resume">
+                    <img src="/Media_Content/image/SG.jpg" alt="Template 1">
+                    <button class="select-btn" onclick="redirectToTemplates()">Select</button>
+                </div>
+            </div>
+            <!-- Navigation Buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Description Box -->
+        <div class="template-description">
+            <h3 id="template-title">SGSITS TEMPLATE</h3>
+            <p id="template-text">For You Collage Intership And Placement </p>
+        </div>
+    </div>
+
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="./Media_Content/Logo/image-removebg-preview[1].png" alt="Instant CV Logo">
+        </div>
+        <div class="footer-links">
+            <strong>Quick Links</strong><br>
+            <a href="./index.html">Home</a>
+            <a href="./About1.html">About Us</a>
+            <a href="./Review.html">Review</a>
+            <a href="./Templates.html">Templates</a>
+        </div>
+        <div class="footer-contact">
+            <strong>Contact Us</strong>
+            <p>Email: <a href="mailto:vikash.ningwal04052004@gmail.com">vikash.ningwal04052004@gmail.com</a></p>
+            <p>Phone: <a href="tel:+918085660391">+91 8085660391</a></p>
+        </div>
+        <div class="footer-social">
+            <strong>Follow Us</strong>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/yagyesh-sahu-173232256"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:vikash.ningwal04052004@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="footer-bottom">
+        Instant CV Maker. All rights reserved. &copy; <span id="year"></span>
+    </div>
+</footer>
+
+<script>
+    function redirectToTemplates() {
+        window.location.href = './login.html';
+    }
+    // Set dynamic year
+    document.getElementById("year").innerText = new Date().getFullYear();
+    
+    // Swiper JS Initialization
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    // Function to show template description
+    function selectTemplate(title, description) {
+        document.getElementById("template-title").textContent = title;
+        document.getElementById("template-text").textContent = description;
+    }
+</script>
+
+</html>

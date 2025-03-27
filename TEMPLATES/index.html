@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>CV Generator</h1>
+            <form id="cv-form" action="/form" method="POST">
+                <h2>Personal Details</h2>
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                    <div class="error-message" id="fullName-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="ugHty">UG HYT:</label>
+                    <input type="text" id="ugHty" name="ugHty">
+                    <div class="error-message" id="ugHty-error"></div>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="institute">Institute:</label>
+                    <input type="text" id="institute" name="institute">
+                    <div class="error-message" id="institute-error"></div>
+                </div> -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob">
+                    <div class="error-message" id="dob-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="enrollmentNo">Enrollment No.:</label>
+                    <input type="text" id="enrollmentNo" name="enrollmentNo">
+                    <div class="error-message" id="enrollmentNo-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch:</label>
+                    <input type="text" id="branch" name="branch">
+                    <div class="error-message" id="branch-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="error-message" id="gender-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="specialization">Specialization:</label>
+                    <input type="text" id="specialization" name="specialization">
+                    <div class="error-message" id="specialization-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile:</label>
+                    <input type="tel" id="mobile" name="mobile">
+                    <div class="error-message" id="mobile-error"></div>
+                </div>
+
+                <h2>Academic Details</h2>
+                <div id="education-container">
+                    <div class="education-entry">
+                        <div class="form-group">
+                            <label for="degree">Degree/Certificate:</label>
+                            <input type="text" id="degree" name="degree">
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University/Board:</label>
+                            <input type="text" id="university" name="university">
+                        </div>
+                        <div class="form-group">
+                            <label for="institute">Institute/School:</label>
+                            <input type="text" id="institute" name="institute">
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year of Passing:</label>
+                            <input type="number" id="year" name="year">
+                        </div>
+                        <div class="form-group">
+                            <label for="percentage">CGPA/Percentage:</label>
+                            <input type="text" id="percentage" name="percentage">
+                        </div>
+                        <button type="button" class="add-btn" id="add-education">Add Education</button>
+                    </div>
+                    <div id="added-education"></div>
+                </div>
+
+                <h2>Scholastic Achievements</h2>
+                <div id="achievements-container">
+                    <div class="form-group achievement-entry">
+                        <label for="achievement">Achievement:</label>
+                        <input type="text" id="achievement" name="achievement">
+                        <button type="button" class="add-btn" id="add-achievement">Add Achievement</button>
+                    </div>
+                    <div id="added-achievements"></div>
+                </div>
+
+                <h2>Projects</h2>
+                <div id="projects-container">
+                    <div class="project-entry">
+                        <div class="form-group">
+                            <label for="projectTitle">Project Title:</label>
+                            <input type="text" id="projectTitle" name="projectTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDetail">Project Detail:</label>
+                            <input type="text" id="projectDetail" name="projectDetail">
+                            <button type="button" class="add-btn" id="add-project-detail">Add Detail</button>
+                        </div>
+                        <div id="added-project-details"></div>
+                    </div>
+                    <button type="button" class="add-btn" id="add-project">Add Another Project</button>
+                    <div id="added-projects"></div>
+                </div>
+
+                <h2>Skills & Technologies</h2>
+                <div class="form-group">
+                    <label for="os">Operating System:</label>
+                    <input type="text" id="os" name="os">
+                </div>
+                <div class="form-group">
+                    <label for="programmingSkills">Programming Skills:</label>
+                    <input type="text" id="programmingSkills" name="programmingSkills">
+                </div>
+                <div class="form-group">
+                    <label for="webDesigning">Web Designing:</label>
+                    <input type="text" id="webDesigning" name="webDesigning">
+                </div>
+                <div class="form-group">
+                    <label for="softwareSkills">Software Skills:</label>
+                    <input type="text" id="softwareSkills" name="softwareSkills">
+                </div>
+
+                <h2>Courses Undertaken</h2>
+                <div class="courses-container">
+                    <div class="form-group">
+                        <label for="coreCourse">Core Course:</label>
+                        <input type="text" id="coreCourse" name="coreCourse">
+                        <button type="button" class="add-btn" id="add-core-course">Add Core Course</button>
+                        <div id="added-core-courses"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="breadthCourse">Breadth Course:</label>
+                        <input type="text" id="breadthCourse" name="breadthCourse">
+                        <button type="button" class="add-btn" id="add-breadth-course">Add Breadth Course</button>
+                        <div id="added-breadth-courses"></div>
+                    </div>
+                </div>
+
+                <h2>Positions of Responsibility</h2>
+                <div id="responsibilities-container">
+                    <div class="form-group responsibility-entry">
+                        <label for="responsibility-title">Position Title:</label>
+                        <input type="text" id="responsibility-title" name="responsibility-title">
+                        <label for="responsibility-desc">Description:</label>
+                        <input type="text" id="responsibility-desc" name="responsibility-desc">
+                        <button type="button" class="add-btn" id="add-responsibility">Add Position</button>
+                    </div>
+                    <div id="added-responsibilities"></div>
+                </div>
+
+                <h2>Extracurricular Activities</h2>
+                <div id="activities-container">
+                    <div class="form-group activity-entry">
+                        <label for="activity-title">Activity Title:</label>
+                        <input type="text" id="activity-title" name="activity-title">
+                        <label for="activity-desc">Description:</label>
+                        <input type="text" id="activity-desc" name="activity-desc">
+                        <button type="button" class="add-btn" id="add-activity">Add Activity</button>
+                    </div>
+                    <div id="added-activities"></div>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" id="generate-cv">Generate CV</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="cv-container" id="cv-template">
+            <div class="cv-header">
+                <div class="logo-section">
+                    <div class="logo-placeholder">
+                        <img src="./logo.png" alt="University Logo">
+                    </div>
+                    <div class="personal-details">
+                        <h1 id="cv-fullName"></h1>
+                        <p id="cv-ugHty"></p>
+                        <p id="cv-institute"></p>
+                        <p id="cv-dob"></p>
+                        <p id="cv-email"></p>
+                    </div>
+                </div>
+                <div class="enrollment-details">
+                    <p id="cv-enrollmentNo"></p>
+                    <p id="cv-branch"></p>
+                    <p id="cv-gender"></p>
+                    <p id="cv-specialization"></p>
+                    <p id="cv-mobile"></p>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Academic Details</h2>
+                <table class="academic-table">
+                    <thead>
+                        <tr>
+                            <th>Degree / Certificate</th>
+                            <th>University / Board</th>
+                            <th>Institute / School</th>
+                            <th>Year of Passing</th>
+                            <th>CGPA / Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Education entries will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Scholastic Achievement:</h2>
+                <ul id="cv-achievements-list">
+                </ul>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Projects</h2>
+                <h3 id="cv-projectTitle"></h3>
+                <ul id="cv-projectDetails-list">
+                </ul>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Platforms, Languages, Technologies & Tools Worked</h2>
+                <ul class="skills-list">
+                    <li><strong>Operating System:</strong> <span id="cv-os"></span></li>
+                    <li><strong>Programming Skills:</strong> <span id="cv-programmingSkills"></span></li>
+                    <li><strong>Web Designing:</strong> <span id="cv-webDesigning"></span></li>
+                    <li><strong>Software Skills:</strong> <span id="cv-softwareSkills"></span></li>
+                </ul>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Courses Undertaken</h2>
+                <div class="courses-grid">
+                    <div class="core-courses">
+                        <h3>Core</h3>
+                        <ul id="cv-coreCourses-list">
+                        </ul>
+                    </div>
+                    <div class="breadth-courses">
+                        <h3>Breadth</h3>
+                        <ul id="cv-breadthCourses-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Positions of Responsibility</h2>
+                <ul id="cv-responsibilities-list">
+                </ul>
+            </div>
+
+            <div class="cv-section">
+                <h2 class="section-title">Extracurricular Activities</h2>
+                <ul id="cv-activities-list">
+                </ul>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="print-cv">Print CV</button>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <link rel="script" href="validation.js">  
+    <!-- <-- ifjwf........................................................  --> 
+</body>
+</html> 

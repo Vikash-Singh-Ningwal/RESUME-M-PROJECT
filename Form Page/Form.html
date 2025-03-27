@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder Form</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="script" href="./script.js">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Resume Builder Form</h1>
+        <form id="resumeForm" onsubmit="saveFormData(event)">
+            
+            <!-- Personal Information -->
+            <div class="form-section">
+                <h2 class="section-title">Personal Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enrollment">Enrollment No.*</label>
+                        <input type="text" id="enrollment" name="enrollment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Course & Year*</label>
+                        <select id="course" name="course" required>
+                            <option value="">Select course</option>
+                            <option value="UG I Yr.">UG I Yr.</option>
+                            <option value="UG II Yr.">UG II Yr.</option>
+                            <option value="UG III Yr.">UG III Yr.</option>
+                            <option value="UG IV Yr.">UG IV Yr.</option>
+                            <option value="PG I Yr.">PG I Yr.</option>
+                            <option value="PG II Yr.">PG II Yr.</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="branch">Branch*</label>
+                        <input type="text" id="branch" name="branch" placeholder="e.g., Information Technology Engineering" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="institute">Institute*</label>
+                        <input type="text" id="institute" name="institute" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth*</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email ID*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number*</label>
+                        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender*</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization">Specialization</label>
+                        <input type="text" id="specialization" name="specialization">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Academic Details -->
+            <div class="form-section">
+                <h2 class="section-title">Academic Details</h2>
+                <div id="academic-container">
+                    <div class="academic-entry">
+                        <input type="text" placeholder="Degree/Certificate*" name="degree[]" required>
+                        <input type="text" placeholder="University/Board*" name="university[]" required>
+                        <input type="text" placeholder="Institute/School*" name="institute[]" required>
+                        <input type="text" placeholder="Year of Passing*" name="year[]" required>
+                        <input type="text" placeholder="CGPA/Percentage*" name="percentage[]" required>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary" onclick="addAcademicEntry()">Add More Academic Details</button>
+            </div>
+            
+            <!-- Scholastic Achievements -->
+            <div class="form-section">
+                <h2 class="section-title">Scholastic Achievements</h2>
+                <div id="achievements-container">
+                    <div class="achievement-entry">
+                        <input type="text" name="achievements[]" placeholder="Enter achievement" required>
+                        <button type="button" class="remove-btn" onclick="removeEntry(this)">×</button>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary" onclick="addNewEntry('achievements-container', 'achievement-entry')">Add Achievement</button>
+            </div>
+            
+            <!-- Skills Section -->
+            <div class="form-section">
+                <h2 class="section-title">Platforms, Languages, Technologies & Tools</h2>
+                <div class="skills-grid">
+                    <div class="form-group">
+                        <label>Operating Systems*</label>
+                        <input type="text" name="operatingSystems" placeholder="e.g., Windows, Linux" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Programming Skills*</label>
+                        <input type="text" name="programmingSkills" placeholder="e.g., C, Java, Python" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Web Designing*</label>
+                        <input type="text" name="webDesigning" placeholder="e.g., HTML, CSS" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Software Skills*</label>
+                        <input type="text" name="softwareSkills" placeholder="e.g., Visual Studio, Visual Paradigm" required>
+                    </div>
+                </div>
+            </div>
+             <!-- Positions of Responsibility Section -->
+             <div class="form-section">
+                <h2 class="section-title">Positions of Responsibility</h2>
+                <div id="positions-container">
+                    <div class="position-entry">
+                        <div class="form-group">
+                            <input type="text" name="positionTitle[]" placeholder="Position Title*" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="positionDescription[]" placeholder="Description of responsibilities*"
+                                required></textarea>
+                        </div>
+                        <button type="button" class="remove-btn" onclick="removeEntry(this)">×</button>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary"
+                    onclick="addNewEntry('positions-container', 'position-entry')">
+                    Add Position
+                </button>
+            </div>
+
+            <!-- Extracurricular Activities Section -->
+            <div class="form-section">
+                <h2 class="section-title">Extracurricular Activities</h2>
+                <div id="activities-container">
+                    <div class="activity-entry">
+                        <div class="form-group">
+                            <input type="text" name="activityName[]" placeholder="Activity Name*" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="activityDescription[]" placeholder="Description of activity*"
+                                required></textarea>
+                        </div>
+                        <button type="button" class="remove-btn" onclick="removeEntry(this)">×</button>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary"
+                    onclick="addNewEntry('activities-container', 'activity-entry')">
+                    Add Activity
+                </button>
+            </div>
+
+            <!-- Form Buttons -->
+            <div class="form-buttons">
+                <button type="submit" class="btn-primary">Generate Resume</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
