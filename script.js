@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       async function findEmail(email) {
-        const apiKey = '4e39068b941642f0ae474be024dddb4f'; // 🔑 Replace with your actual API key
+        const apiKey = ''; // 🔑 Replace with your actual API key
         const url = `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${email}`;
   
         try {
