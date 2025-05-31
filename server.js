@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // Parses form data
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '@Vikash2004',  // Replace with your MySQL root password
+  password: '',  // Replace with your MySQL root password
   database: 'resume_builder'
 });
 
